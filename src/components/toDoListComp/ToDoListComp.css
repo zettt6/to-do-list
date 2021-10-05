@@ -1,0 +1,46 @@
+.container-ul {
+   width: 440px;
+   display: flex;
+   justify-content: center;
+}
+
+ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.tasks {
+   width: 440px;
+   margin: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: #9890e33a 5px solid;
+   border-radius: 8px;
+   padding: 5px;
+   background-color: #fff;
+}
+
+.tasks button {
+   border: none;
+   color: #9890e3;
+   background-color: rgba(255, 255, 255, 0);
+}
+
+.tasks li {
+   width: 82%;
+   text-align: start;
+   word-wrap: break-word;
+}
+
+.tasks input {
+   width: 20px;
+   margin-right: 10px;
+   height: 17px;
+}
+
+.completed-task {
+   opacity: 0.8;
+   text-decoration: line-through rgba(0, 0, 0, 0.8);
+}

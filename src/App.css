@@ -1,38 +1,149 @@
 .App {
-  text-align: center;
+   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+   height: 40vmin;
+   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+   .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+   }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+   background-color: #282c34;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-size: calc(10px + 2vmin);
+   color: white;
 }
 
 .App-link {
-  color: #61dafb;
+   color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
+}
+.todolist-root {
+   display: flex;
+   justify-content: center;
+   min-height: 100vh;
+   min-width: 100vh;
+}
+
+.ToDoList {
+   width: 500px;
+}
+
+.todolist-title {
+   color: #9890e3;
+   text-align: center;
+}
+
+.todo-container {
+   padding: 20px;
+   background: linear-gradient(45deg, #9890e3, #b1f4cf);
+   text-align: center;
+   box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.22);
+   border-radius: 5px;
+   font-size: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.task-counter {
+   color: white;
+}
+
+.hr {
+   color: white;
+   margin-bottom: 15px;
+}
+
+.empty {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 10px;
+   font-size: 22px;
+   color: white;
+}
+
+.empty img {
+   width: 110px;
+   margin-bottom: 15px;
+}
+
+.container-filter {
+   display: flex;
+   justify-content: space-evenly;
+   width: 440px;
+}
+
+.filter-done-active {
+   background-color: #adb5e2;
+   color: white;
+}
+
+.filter-all-active {
+   background-color: #adb5e2;
+   color: white;
+}
+
+.filter-todo-active {
+   background-color: #adb5e2;
+   color: white;
+}
+
+.filter-btn {
+   background-color: rgb(255, 255, 255);
+   color: #00000096;
+}
+
+.container-filter button {
+   border: #9890e33a 3px solid;
+   border-radius: 4px;
+   width: 80px;
+   font-size: 15px;
+}
+
+.container-filter button:active {
+   background-color: rgb(221, 221, 221);
+   transition-property: background-color;
+   transition-duration: 0.22s;
+}
+
+.container-remover {
+   display: flex;
+   justify-content: space-evenly;
+   width: 440px;
+   margin-top: 10px;
+}
+
+.container-remover button {
+   background-color: rgb(255, 255, 255);
+   border: #9890e33a 3px solid;
+   border-radius: 4px;
+   width: 150px;
+   font-size: 15px;
+   color: #00000096;
+}
+
+.container-remover button:active {
+   background-color: rgb(221, 221, 221);
+   transition-property: background-color;
+   transition-duration: 0.22s;
 }
