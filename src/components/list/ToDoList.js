@@ -1,7 +1,7 @@
-import './ToDoListComp.css'
+import './ToDoList.css'
 import cross from './delete.svg'
 
-function ToDoListComp(props) {
+function ToDoList(props) {
    return (
       <div className="container-ul">
          <ul>
@@ -41,4 +41,4 @@ function ToDoListComp(props) {
    )
 }
 
-export default ToDoListComp
+export default ToDoList

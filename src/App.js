@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import ToDoListComp from './components/toDoListComp/ToDoListComp'
-import ToDoForm from './components/toDoForm/ToDoForm'
+import ToDoList from './components/list/ToDoList'
+import ToDoForm from './components/form/ToDoForm'
 import Filter from './components/filter/Filter'
 import Remover from './components/remover/Remover'
 import todoEmpty from './7703606.png'
@@ -104,7 +104,7 @@ function App() {
                      Task list is empty!
                   </div>
                )}
-               <ToDoListComp
+               <ToDoList
                   tasks={tasks}
                   filteredTasks={filteredTasks}
                   removeTask={removeTask}

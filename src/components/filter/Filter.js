@@ -35,3 +35,11 @@ function Filter(props) {
    )
 }
 export default Filter
+
+/*
+<select>
+   <option value='all'>All</option>
+   <option value='done' >Done</option>
+   <option value="todo" >Todo</option>
+ </select>
+*/
