@@ -1,17 +1,23 @@
 import './ToDoList.css'
 import cross from './delete.svg'
 
-function ToDoList(props) {
+function ToDoList({ tasks, setTasks, filteredTasks, removeTask, ...props }) {
+   const changeCheck = (index) => {
+      let tempTasks = [...tasks]
+      tempTasks[index].completed = !tempTasks[index].completed
+      setTasks(tempTasks)
+   }
+
    return (
       <div className="container-ul">
          <ul>
-            {props.tasks
+            {tasks
                .filter(
                   (task) =>
-                     props.filteredTasks === '' ||
-                     props.filteredTasks === 'all' ||
-                     (!task.completed && props.filteredTasks === 'todo') ||
-                     (task.completed && props.filteredTasks === 'done')
+                     filteredTasks === '' ||
+                     filteredTasks === 'all' ||
+                     (!task.completed && filteredTasks === 'todo') ||
+                     (task.completed && filteredTasks === 'done')
                )
                .map((task, index) => (
                   <div key={index.toString()}>
@@ -22,14 +28,14 @@ function ToDoList(props) {
                      >
                         <input
                            type="checkbox"
-                           onChange={() => props.changeCheck(index)}
+                           onChange={() => changeCheck(index)}
                            checked={task.completed}
                         />
                         <li>{task.text}</li>
 
                         <button
                            className="cross-tasks"
-                           onClick={() => props.removeTask(index)}
+                           onClick={() => removeTask(index)}
                         >
                            <img alt="" src={cross} />
                         </button>

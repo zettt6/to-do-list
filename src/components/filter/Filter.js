@@ -1,33 +1,53 @@
-function Filter(props) {
+import todoEmpty from './7703606.png'
+
+function Filter({ filteredTasks, setFilteredTasks, ...props }) {
+   if (!props.tasks.length)
+      return (
+         <div className="empty">
+            <img src={todoEmpty} alt="ops" />
+            Task list is empty!
+         </div>
+      )
+
+   const showAllTasks = () => {
+      setFilteredTasks('all')
+   }
+
+   const showCompletedTasks = () => {
+      if (filteredTasks !== 'done') {
+         setFilteredTasks('done')
+      } else setFilteredTasks('all')
+   }
+
+   const showUncompletedTasks = () => {
+      if (filteredTasks !== 'todo') {
+         setFilteredTasks('todo')
+      } else setFilteredTasks('all')
+   }
+
    return (
       <div className="container-filter">
          <button
             className={
-               props.filteredTasks === 'all'
-                  ? 'filter-all-active'
-                  : 'filter-btn'
+               filteredTasks === 'all' ? 'filter-all-active' : 'filter-btn'
             }
-            onClick={props.showAllTasks}
+            onClick={showAllTasks}
          >
             All
          </button>
          <button
             className={
-               props.filteredTasks === 'done'
-                  ? 'filter-done-active'
-                  : 'filter-btn'
+               filteredTasks === 'done' ? 'filter-done-active' : 'filter-btn'
             }
-            onClick={props.showCompletedTasks}
+            onClick={showCompletedTasks}
          >
             Done
          </button>
          <button
             className={
-               props.filteredTasks === 'todo'
-                  ? 'filter-todo-active'
-                  : 'filter-btn'
+               filteredTasks === 'todo' ? 'filter-todo-active' : 'filter-btn'
             }
-            onClick={props.showUncompletedTasks}
+            onClick={showUncompletedTasks}
          >
             Todo
          </button>
@@ -35,11 +55,3 @@ function Filter(props) {
    )
 }
 export default Filter
-
-/*
-<select>
-   <option value='all'>All</option>
-   <option value='done' >Done</option>
-   <option value="todo" >Todo</option>
- </select>
-*/

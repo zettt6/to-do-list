@@ -4,11 +4,7 @@ import ToDoList from './components/list/ToDoList'
 import ToDoForm from './components/form/ToDoForm'
 import Filter from './components/filter/Filter'
 import Remover from './components/remover/Remover'
-import todoEmpty from './7703606.png'
 import './App.css'
-
-// декомпозировать код
-// добавить модалку для редактирования таски
 
 function App() {
    const [inputText, setInputText] = useState('')
@@ -41,39 +37,6 @@ function App() {
       setTasks(tempTasks)
    }
 
-   const changeCheck = (index) => {
-      let tempTasks = [...tasks]
-      tempTasks[index].completed = !tempTasks[index].completed
-      setTasks(tempTasks)
-   }
-
-   const showAllTasks = () => {
-      setFilteredTasks('all')
-   }
-
-   const showCompletedTasks = () => {
-      if (filteredTasks !== 'done') {
-         setFilteredTasks('done')
-      } else setFilteredTasks('all')
-   }
-
-   const showUncompletedTasks = () => {
-      if (filteredTasks !== 'todo') {
-         setFilteredTasks('todo')
-      } else setFilteredTasks('all')
-   }
-
-   const deleteDoneTasks = () => {
-      console.log('work')
-      let tempTasks = [...tasks]
-      tempTasks = tempTasks.filter((task) => !task.completed)
-      setTasks(tempTasks)
-   }
-
-   const deleteAllTasks = () => {
-      setTasks([])
-   }
-
    return (
       <div className="todolist-root">
          <div className="ToDoList">
@@ -82,41 +45,24 @@ function App() {
             </div>
             <div className="todo-container">
                <h3 className="task-counter">Amount of tasks: {tasks.length}</h3>
-
                <ToDoForm
                   inputText={inputText}
                   addTask={addTask}
                   changeInputText={changeInputText}
                />
-
-               <div className="hr">_____________</div>
-
-               {(!!tasks.length && (
-                  <Filter
-                     filteredTasks={filteredTasks}
-                     showCompletedTasks={showCompletedTasks}
-                     showUncompletedTasks={showUncompletedTasks}
-                     showAllTasks={showAllTasks}
-                  />
-               )) || (
-                  <div className="empty">
-                     <img src={todoEmpty} alt="ops" />
-                     Task list is empty!
-                  </div>
-               )}
-               <ToDoList
+               <hr style={{ width: '200px', margin: '15px 0' }} />
+               <Filter
                   tasks={tasks}
                   filteredTasks={filteredTasks}
-                  removeTask={removeTask}
-                  changeCheck={changeCheck}
+                  setFilteredTasks={setFilteredTasks}
                />
-
-               {!!tasks.length && (
-                  <Remover
-                     deleteAllTasks={deleteAllTasks}
-                     deleteDoneTasks={deleteDoneTasks}
-                  />
-               )}
+               <ToDoList
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  filteredTasks={filteredTasks}
+                  removeTask={removeTask}
+               />
+               <Remover tasks={tasks} setTasks={setTasks} />
             </div>
          </div>
       </div>
